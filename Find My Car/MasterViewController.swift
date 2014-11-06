@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class MasterViewController: UITableViewController {
 
@@ -33,6 +34,23 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if (CMMotionActivityManager.isActivityAvailable()) {
+            Handler()
+        }
+        else {
+            showErrorAndKill()
+        }
+    }
+    
+    func showErrorAndKill() {
+        var alert = UIAlertController(title: "Error", message: "error", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default) { (action) in
+            exit(0)
+            })
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

@@ -14,6 +14,20 @@
 		048723741A083ABC00BF6E66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048723731A083ABC00BF6E66 /* Images.xcassets */; };
 		048723771A083ABC00BF6E66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048723751A083ABC00BF6E66 /* LaunchScreen.xib */; };
 		048723831A083ABC00BF6E66 /* Find_My_CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048723821A083ABC00BF6E66 /* Find_My_CarTests.swift */; };
+		0487238D1A0844F300BF6E66 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487238C1A0844F300BF6E66 /* Handler.swift */; };
+		04A439221A08740B00DA6306 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A439211A08740B00DA6306 /* Activity.swift */; };
+		04A439271A08859800DA6306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439261A08859800DA6306 /* Parse.framework */; };
+		04A439291A08886F00DA6306 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439281A08886F00DA6306 /* AudioToolbox.framework */; };
+		04A4392B1A08887500DA6306 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4392A1A08887500DA6306 /* CFNetwork.framework */; };
+		04A4392D1A08887E00DA6306 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4392C1A08887E00DA6306 /* CoreGraphics.framework */; };
+		04A4392F1A08888600DA6306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4392E1A08888600DA6306 /* CoreLocation.framework */; };
+		04A439311A08889600DA6306 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439301A08889600DA6306 /* libz.dylib */; };
+		04A439331A08889F00DA6306 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439321A08889F00DA6306 /* MobileCoreServices.framework */; };
+		04A439351A0888A700DA6306 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439341A0888A700DA6306 /* QuartzCore.framework */; };
+		04A439371A0888B000DA6306 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439361A0888B000DA6306 /* Security.framework */; };
+		04A4393B1A0888C200DA6306 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4393A1A0888C200DA6306 /* SystemConfiguration.framework */; };
+		04A4393D1A08898100DA6306 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4393C1A08898100DA6306 /* Bolts.framework */; };
+		04A558FA1A0AF1BF008B3A53 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A439211A08740B00DA6306 /* Activity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +52,20 @@
 		0487237C1A083ABC00BF6E66 /* Find My CarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Find My CarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		048723811A083ABC00BF6E66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048723821A083ABC00BF6E66 /* Find_My_CarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find_My_CarTests.swift; sourceTree = "<group>"; };
+		0487238C1A0844F300BF6E66 /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Handler.swift; path = ../Handler.swift; sourceTree = "<group>"; };
+		04A439211A08740B00DA6306 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		04A439231A08848500DA6306 /* Find My Car-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Find My Car-Bridging-Header.h"; sourceTree = "<group>"; };
+		04A439261A08859800DA6306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../ParseStarterProject/Parse.framework; sourceTree = "<group>"; };
+		04A439281A08886F00DA6306 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		04A4392A1A08887500DA6306 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		04A4392C1A08887E00DA6306 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		04A4392E1A08888600DA6306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		04A439301A08889600DA6306 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		04A439321A08889F00DA6306 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		04A439341A0888A700DA6306 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		04A439361A0888B000DA6306 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		04A4393A1A0888C200DA6306 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		04A4393C1A08898100DA6306 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../ParseStarterProject/Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +73,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A4393B1A0888C200DA6306 /* SystemConfiguration.framework in Frameworks */,
+				04A439371A0888B000DA6306 /* Security.framework in Frameworks */,
+				04A4393D1A08898100DA6306 /* Bolts.framework in Frameworks */,
+				04A439351A0888A700DA6306 /* QuartzCore.framework in Frameworks */,
+				04A439331A08889F00DA6306 /* MobileCoreServices.framework in Frameworks */,
+				04A439311A08889600DA6306 /* libz.dylib in Frameworks */,
+				04A4392F1A08888600DA6306 /* CoreLocation.framework in Frameworks */,
+				04A4392D1A08887E00DA6306 /* CoreGraphics.framework in Frameworks */,
+				04A4392B1A08887500DA6306 /* CFNetwork.framework in Frameworks */,
+				04A439291A08886F00DA6306 /* AudioToolbox.framework in Frameworks */,
+				04A439271A08859800DA6306 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +100,7 @@
 		0487235C1A083ABC00BF6E66 = {
 			isa = PBXGroup;
 			children = (
+				04A4393E1A08899E00DA6306 /* Frameworks */,
 				048723671A083ABC00BF6E66 /* Find My Car */,
 				0487237F1A083ABC00BF6E66 /* Find My CarTests */,
 				048723661A083ABC00BF6E66 /* Products */,
@@ -79,6 +119,7 @@
 		048723671A083ABC00BF6E66 /* Find My Car */ = {
 			isa = PBXGroup;
 			children = (
+				0487238C1A0844F300BF6E66 /* Handler.swift */,
 				0487236A1A083ABC00BF6E66 /* AppDelegate.swift */,
 				0487236C1A083ABC00BF6E66 /* MasterViewController.swift */,
 				0487236E1A083ABC00BF6E66 /* DetailViewController.swift */,
@@ -86,6 +127,8 @@
 				048723731A083ABC00BF6E66 /* Images.xcassets */,
 				048723751A083ABC00BF6E66 /* LaunchScreen.xib */,
 				048723681A083ABC00BF6E66 /* Supporting Files */,
+				04A439211A08740B00DA6306 /* Activity.swift */,
+				04A439231A08848500DA6306 /* Find My Car-Bridging-Header.h */,
 			);
 			path = "Find My Car";
 			sourceTree = "<group>";
@@ -113,6 +156,24 @@
 				048723811A083ABC00BF6E66 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04A4393E1A08899E00DA6306 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04A4393C1A08898100DA6306 /* Bolts.framework */,
+				04A4393A1A0888C200DA6306 /* SystemConfiguration.framework */,
+				04A439361A0888B000DA6306 /* Security.framework */,
+				04A439341A0888A700DA6306 /* QuartzCore.framework */,
+				04A439321A08889F00DA6306 /* MobileCoreServices.framework */,
+				04A439301A08889600DA6306 /* libz.dylib */,
+				04A4392E1A08888600DA6306 /* CoreLocation.framework */,
+				04A4392C1A08887E00DA6306 /* CoreGraphics.framework */,
+				04A4392A1A08887500DA6306 /* CFNetwork.framework */,
+				04A439281A08886F00DA6306 /* AudioToolbox.framework */,
+				04A439261A08859800DA6306 /* Parse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +225,15 @@
 				TargetAttributes = {
 					048723641A083ABC00BF6E66 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 7MAK4KRZ55;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					0487237B1A083ABC00BF6E66 = {
 						CreatedOnToolsVersion = 6.1;
@@ -215,8 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A439221A08740B00DA6306 /* Activity.swift in Sources */,
 				0487236F1A083ABC00BF6E66 /* DetailViewController.swift in Sources */,
 				0487236D1A083ABC00BF6E66 /* MasterViewController.swift in Sources */,
+				0487238D1A0844F300BF6E66 /* Handler.swift in Sources */,
 				0487236B1A083ABC00BF6E66 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A558FA1A0AF1BF008B3A53 /* Activity.swift in Sources */,
 				048723831A083ABC00BF6E66 /* Find_My_CarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,9 +415,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mehulgoyal/Documents/cs242/FinalProject/ParseStarterProject,
+				);
 				INFOPLIST_FILE = "Find My Car/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Find My Car/Find My Car-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -352,9 +435,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mehulgoyal/Documents/cs242/FinalProject/ParseStarterProject,
+				);
 				INFOPLIST_FILE = "Find My Car/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Find My Car/Find My Car-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -411,6 +503,7 @@
 				048723881A083ABC00BF6E66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		048723891A083ABC00BF6E66 /* Build configuration list for PBXNativeTarget "Find My CarTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +512,7 @@
 				0487238B1A083ABC00BF6E66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
