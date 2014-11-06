@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0471EE751A0C0E2300E31FBF /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EE741A0C0E2300E31FBF /* Handler.swift */; };
 		0487236B1A083ABC00BF6E66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487236A1A083ABC00BF6E66 /* AppDelegate.swift */; };
 		0487236D1A083ABC00BF6E66 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487236C1A083ABC00BF6E66 /* MasterViewController.swift */; };
 		0487236F1A083ABC00BF6E66 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487236E1A083ABC00BF6E66 /* DetailViewController.swift */; };
@@ -14,7 +15,6 @@
 		048723741A083ABC00BF6E66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048723731A083ABC00BF6E66 /* Images.xcassets */; };
 		048723771A083ABC00BF6E66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048723751A083ABC00BF6E66 /* LaunchScreen.xib */; };
 		048723831A083ABC00BF6E66 /* Find_My_CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048723821A083ABC00BF6E66 /* Find_My_CarTests.swift */; };
-		0487238D1A0844F300BF6E66 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487238C1A0844F300BF6E66 /* Handler.swift */; };
 		04A439221A08740B00DA6306 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A439211A08740B00DA6306 /* Activity.swift */; };
 		04A439271A08859800DA6306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439261A08859800DA6306 /* Parse.framework */; };
 		04A439291A08886F00DA6306 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439281A08886F00DA6306 /* AudioToolbox.framework */; };
@@ -41,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0471EE741A0C0E2300E31FBF /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
 		048723651A083ABC00BF6E66 /* Find My Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Find My Car.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		048723691A083ABC00BF6E66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0487236A1A083ABC00BF6E66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		0487237C1A083ABC00BF6E66 /* Find My CarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Find My CarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		048723811A083ABC00BF6E66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048723821A083ABC00BF6E66 /* Find_My_CarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find_My_CarTests.swift; sourceTree = "<group>"; };
-		0487238C1A0844F300BF6E66 /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Handler.swift; path = ../Handler.swift; sourceTree = "<group>"; };
 		04A439211A08740B00DA6306 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		04A439231A08848500DA6306 /* Find My Car-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Find My Car-Bridging-Header.h"; sourceTree = "<group>"; };
 		04A439261A08859800DA6306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../ParseStarterProject/Parse.framework; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		048723671A083ABC00BF6E66 /* Find My Car */ = {
 			isa = PBXGroup;
 			children = (
-				0487238C1A0844F300BF6E66 /* Handler.swift */,
+				0471EE741A0C0E2300E31FBF /* Handler.swift */,
 				0487236A1A083ABC00BF6E66 /* AppDelegate.swift */,
 				0487236C1A083ABC00BF6E66 /* MasterViewController.swift */,
 				0487236E1A083ABC00BF6E66 /* DetailViewController.swift */,
@@ -285,10 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0471EE751A0C0E2300E31FBF /* Handler.swift in Sources */,
 				04A439221A08740B00DA6306 /* Activity.swift in Sources */,
 				0487236F1A083ABC00BF6E66 /* DetailViewController.swift in Sources */,
 				0487236D1A083ABC00BF6E66 /* MasterViewController.swift in Sources */,
-				0487238D1A0844F300BF6E66 /* Handler.swift in Sources */,
 				0487236B1A083ABC00BF6E66 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
