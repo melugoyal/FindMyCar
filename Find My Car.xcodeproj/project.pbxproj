@@ -7,7 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046B8BC01A117D8900E5E90E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B8BBF1A117D8900E5E90E /* Location.swift */; };
 		0471EE751A0C0E2300E31FBF /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EE741A0C0E2300E31FBF /* Handler.swift */; };
+		0471EE791A0E9D9D00E31FBF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE781A0E9D9D00E31FBF /* FacebookSDK.framework */; };
+		0471EE7B1A0E9EEC00E31FBF /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE7A1A0E9EEC00E31FBF /* ParseFacebookUtils.framework */; };
+		0471EE7F1A10771200E31FBF /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE7E1A10771200E31FBF /* GoogleMaps.framework */; };
+		0471EE811A10774700E31FBF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE801A10774700E31FBF /* AVFoundation.framework */; };
+		0471EE831A10775200E31FBF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE821A10775200E31FBF /* CoreData.framework */; };
+		0471EE851A10775F00E31FBF /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE841A10775F00E31FBF /* CoreText.framework */; };
+		0471EE871A10776700E31FBF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE861A10776700E31FBF /* GLKit.framework */; };
+		0471EE891A10776F00E31FBF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE881A10776F00E31FBF /* ImageIO.framework */; };
+		0471EE8B1A10777B00E31FBF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE8A1A10777B00E31FBF /* libc++.dylib */; };
+		0471EE8D1A10778800E31FBF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE8C1A10778800E31FBF /* libicucore.dylib */; };
+		0471EE8F1A10779700E31FBF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0471EE8E1A10779700E31FBF /* OpenGLES.framework */; };
+		0471EE911A107A9600E31FBF /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0471EE901A107A9600E31FBF /* GoogleMaps.bundle */; };
 		0487236B1A083ABC00BF6E66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487236A1A083ABC00BF6E66 /* AppDelegate.swift */; };
 		0487236D1A083ABC00BF6E66 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487236C1A083ABC00BF6E66 /* MasterViewController.swift */; };
 		0487236F1A083ABC00BF6E66 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487236E1A083ABC00BF6E66 /* DetailViewController.swift */; };
@@ -41,7 +54,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		046B8BBF1A117D8900E5E90E /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0471EE741A0C0E2300E31FBF /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
+		0471EE781A0E9D9D00E31FBF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		0471EE7A1A0E9EEC00E31FBF /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = ../ParseStarterProject/ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		0471EE7E1A10771200E31FBF /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		0471EE801A10774700E31FBF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0471EE821A10775200E31FBF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0471EE841A10775F00E31FBF /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		0471EE861A10776700E31FBF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		0471EE881A10776F00E31FBF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		0471EE8A1A10777B00E31FBF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		0471EE8C1A10778800E31FBF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		0471EE8E1A10779700E31FBF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0471EE901A107A9600E31FBF /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		048723651A083ABC00BF6E66 /* Find My Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Find My Car.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		048723691A083ABC00BF6E66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0487236A1A083ABC00BF6E66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +92,7 @@
 		04A439361A0888B000DA6306 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		04A4393A1A0888C200DA6306 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04A4393C1A08898100DA6306 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../ParseStarterProject/Bolts.framework; sourceTree = "<group>"; };
+		04E1DFE01A12CCDD006E8768 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,17 +100,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A439351A0888A700DA6306 /* QuartzCore.framework in Frameworks */,
+				0471EE8F1A10779700E31FBF /* OpenGLES.framework in Frameworks */,
+				04A439311A08889600DA6306 /* libz.dylib in Frameworks */,
+				0471EE8D1A10778800E31FBF /* libicucore.dylib in Frameworks */,
+				0471EE8B1A10777B00E31FBF /* libc++.dylib in Frameworks */,
+				0471EE891A10776F00E31FBF /* ImageIO.framework in Frameworks */,
+				0471EE871A10776700E31FBF /* GLKit.framework in Frameworks */,
+				0471EE851A10775F00E31FBF /* CoreText.framework in Frameworks */,
+				0471EE831A10775200E31FBF /* CoreData.framework in Frameworks */,
+				0471EE811A10774700E31FBF /* AVFoundation.framework in Frameworks */,
 				04A4393B1A0888C200DA6306 /* SystemConfiguration.framework in Frameworks */,
 				04A439371A0888B000DA6306 /* Security.framework in Frameworks */,
 				04A4393D1A08898100DA6306 /* Bolts.framework in Frameworks */,
-				04A439351A0888A700DA6306 /* QuartzCore.framework in Frameworks */,
 				04A439331A08889F00DA6306 /* MobileCoreServices.framework in Frameworks */,
-				04A439311A08889600DA6306 /* libz.dylib in Frameworks */,
+				0471EE791A0E9D9D00E31FBF /* FacebookSDK.framework in Frameworks */,
 				04A4392F1A08888600DA6306 /* CoreLocation.framework in Frameworks */,
+				0471EE7F1A10771200E31FBF /* GoogleMaps.framework in Frameworks */,
 				04A4392D1A08887E00DA6306 /* CoreGraphics.framework in Frameworks */,
 				04A4392B1A08887500DA6306 /* CFNetwork.framework in Frameworks */,
 				04A439291A08886F00DA6306 /* AudioToolbox.framework in Frameworks */,
 				04A439271A08859800DA6306 /* Parse.framework in Frameworks */,
+				0471EE7B1A0E9EEC00E31FBF /* ParseFacebookUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +167,7 @@
 				048723681A083ABC00BF6E66 /* Supporting Files */,
 				04A439211A08740B00DA6306 /* Activity.swift */,
 				04A439231A08848500DA6306 /* Find My Car-Bridging-Header.h */,
+				046B8BBF1A117D8900E5E90E /* Location.swift */,
 			);
 			path = "Find My Car";
 			sourceTree = "<group>";
@@ -161,17 +200,30 @@
 		04A4393E1A08899E00DA6306 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				04A4393C1A08898100DA6306 /* Bolts.framework */,
-				04A4393A1A0888C200DA6306 /* SystemConfiguration.framework */,
-				04A439361A0888B000DA6306 /* Security.framework */,
-				04A439341A0888A700DA6306 /* QuartzCore.framework */,
-				04A439321A08889F00DA6306 /* MobileCoreServices.framework */,
-				04A439301A08889600DA6306 /* libz.dylib */,
-				04A4392E1A08888600DA6306 /* CoreLocation.framework */,
-				04A4392C1A08887E00DA6306 /* CoreGraphics.framework */,
-				04A4392A1A08887500DA6306 /* CFNetwork.framework */,
+				04E1DFE01A12CCDD006E8768 /* CoreMedia.framework */,
 				04A439281A08886F00DA6306 /* AudioToolbox.framework */,
+				0471EE801A10774700E31FBF /* AVFoundation.framework */,
+				04A4393C1A08898100DA6306 /* Bolts.framework */,
+				04A4392A1A08887500DA6306 /* CFNetwork.framework */,
+				0471EE821A10775200E31FBF /* CoreData.framework */,
+				04A4392C1A08887E00DA6306 /* CoreGraphics.framework */,
+				04A4392E1A08888600DA6306 /* CoreLocation.framework */,
+				0471EE841A10775F00E31FBF /* CoreText.framework */,
+				0471EE781A0E9D9D00E31FBF /* FacebookSDK.framework */,
+				0471EE861A10776700E31FBF /* GLKit.framework */,
+				0471EE901A107A9600E31FBF /* GoogleMaps.bundle */,
+				0471EE7E1A10771200E31FBF /* GoogleMaps.framework */,
+				0471EE881A10776F00E31FBF /* ImageIO.framework */,
+				0471EE8A1A10777B00E31FBF /* libc++.dylib */,
+				0471EE8C1A10778800E31FBF /* libicucore.dylib */,
+				04A439301A08889600DA6306 /* libz.dylib */,
+				04A439321A08889F00DA6306 /* MobileCoreServices.framework */,
+				0471EE8E1A10779700E31FBF /* OpenGLES.framework */,
 				04A439261A08859800DA6306 /* Parse.framework */,
+				0471EE7A1A0E9EEC00E31FBF /* ParseFacebookUtils.framework */,
+				04A439341A0888A700DA6306 /* QuartzCore.framework */,
+				04A439361A0888B000DA6306 /* Security.framework */,
+				04A4393A1A0888C200DA6306 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -268,6 +320,7 @@
 				048723721A083ABC00BF6E66 /* Main.storyboard in Resources */,
 				048723771A083ABC00BF6E66 /* LaunchScreen.xib in Resources */,
 				048723741A083ABC00BF6E66 /* Images.xcassets in Resources */,
+				0471EE911A107A9600E31FBF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +342,7 @@
 				04A439221A08740B00DA6306 /* Activity.swift in Sources */,
 				0487236F1A083ABC00BF6E66 /* DetailViewController.swift in Sources */,
 				0487236D1A083ABC00BF6E66 /* MasterViewController.swift in Sources */,
+				046B8BC01A117D8900E5E90E /* Location.swift in Sources */,
 				0487236B1A083ABC00BF6E66 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,10 +474,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/Users/mehulgoyal/Documents/FacebookSDK,
+					"/Users/mehulgoyal/Documents/GoogleMaps-iOS-1.9.0",
 					/Users/mehulgoyal/Documents/cs242/FinalProject/ParseStarterProject,
 				);
 				INFOPLIST_FILE = "Find My Car/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Find My Car/Find My Car-Bridging-Header.h";
@@ -440,10 +498,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/Users/mehulgoyal/Documents/FacebookSDK,
+					"/Users/mehulgoyal/Documents/GoogleMaps-iOS-1.9.0",
 					/Users/mehulgoyal/Documents/cs242/FinalProject/ParseStarterProject,
 				);
 				INFOPLIST_FILE = "Find My Car/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Find My Car/Find My Car-Bridging-Header.h";

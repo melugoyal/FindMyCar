@@ -11,30 +11,33 @@ import CoreMotion
 
 class Handler {
     var queue: NSOperationQueue
-    var lastActivity: String
+    var lastActivity: String = ""
+    var controller:MasterViewController
     
-    init() {
+    init(locManager: CLLocationManager, controller:MasterViewController) {
         var manager:CMMotionActivityManager = CMMotionActivityManager()
         queue = NSOperationQueue()
-        lastActivity = ""
+        self.controller = controller
         manager.startActivityUpdatesToQueue(queue, withHandler: {
             (activity:CMMotionActivity!) in
-            var newActivity = Activity(activity: activity)
-            if self.lastActivity == "Car" && newActivity.type != "Car" {
-                var car = PFObject(className: "Vehicle")
-                car["longitude"] = newActivity.longitude
-                car["latitude"] = newActivity.latitude
-                car["type"] = "Car"
-                car.saveInBackgroundWithBlock(nil)
+            if (locManager.location == nil) {
+                return
             }
-            if self.lastActivity == "Bike" && newActivity.type != "Bike" {
-                var bike = PFObject(className: "Vehicle")
-                bike["longitude"] = newActivity.longitude
-                bike["latitude"] = newActivity.latitude
-                bike["type"] = "Bike"
-                bike.saveInBackgroundWithBlock(nil)
+            var newActivity = Activity(activity: activity, location:locManager.location)
+            if (self.lastActivity == "Car" && newActivity.type != "Car") || (self.lastActivity == "Bike" && newActivity.type != "Bike") {
+                self.postActivity(newActivity)
             }
             self.lastActivity = newActivity.type
+        })
+    }
+    
+    func postActivity(newActivity:Activity) {
+        var vehicle = PFObject(className: "Vehicle")
+        vehicle["location"] = PFGeoPoint(latitude: newActivity.latitude, longitude: newActivity.longitude)
+        vehicle["type"] = newActivity.type
+        vehicle["user"] = PFUser.currentUser()
+        vehicle.saveInBackgroundWithBlock({ (Bool, NilLiteralConvertible) -> Void in
+            self.controller.updateMarkers() // update the markers on the view after the newest marker has been saved
         })
     }
 }

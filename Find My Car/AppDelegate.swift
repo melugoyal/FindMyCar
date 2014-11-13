@@ -19,12 +19,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
-        Parse.setApplicationId("4g8GWbIcHa4acM8x2wSZYJL82qElZLdk3bJNSGoO", clientKey: "O47HE8LJR1OkHu0twL9TfJeUKb3LUwafmQFMbS08")
-        PFUser.enableAutomaticUser()
-        PFACL.setDefaultACL(PFACL(), withAccessForCurrentUser: true)
+        initParseAndGmaps()
         return true
     }
+    
+    func initParseAndGmaps() {
+        Parse.setApplicationId("4g8GWbIcHa4acM8x2wSZYJL82qElZLdk3bJNSGoO", clientKey: "O47HE8LJR1OkHu0twL9TfJeUKb3LUwafmQFMbS08")
+        PFFacebookUtils.initializeFacebook()
+        PFUser.enableAutomaticUser()
+        if !PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()) {
+            PFFacebookUtils.linkUser(PFUser.currentUser(), permissions:nil, {
+                (succeeded: Bool!, error: NSError!) -> Void in
+                if succeeded != nil && succeeded == true {
+                    NSLog("Woohoo, user logged in with Facebook!")
+                }
+            })
+        }
+        GMSServices.provideAPIKey("AIzaSyCJGNro6GbgiZnpprUMBsgllkFZFgAkCuk")
+    }
 
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String,
+        annotation: AnyObject?) -> Bool {
+            return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
+                withSession:PFFacebookUtils.session())
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -41,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
     }
 
     func applicationWillTerminate(application: UIApplication) {

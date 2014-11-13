@@ -8,24 +8,23 @@
 
 import Foundation
 import CoreMotion
+import CoreLocation
 
 class Activity {
-    var time: NSDate
-    var confidence: Int
-    var car: Bool
-    var bike: Bool
-    var notCarNorBike: Bool
-    var type: String = ""
-    var longitude: Double
-    var latitude: Double
-    init(activity:CMMotionActivity) {
-        notCarNorBike = activity.walking || activity.running || activity.stationary || activity.unknown
+    var time:NSDate
+    var confidence:Int
+    var car:Bool
+    var bike:Bool
+    var type:String = ""
+    var longitude:Double
+    var latitude:Double
+    init(activity:CMMotionActivity, location:CLLocation) {
         bike = activity.cycling
         car = activity.automotive
         time = activity.startDate
         confidence = activity.confidence == CMMotionActivityConfidence.High ? 2 : (activity.confidence == CMMotionActivityConfidence.Medium ? 1 : 0) // 2 is high, 0 is low
         type = bike ? "Bike" : (car ? "Car" : "")
-        latitude = 0
-        longitude = 0
+        latitude = location.coordinate.latitude
+        longitude = location.coordinate.longitude
     }
 }

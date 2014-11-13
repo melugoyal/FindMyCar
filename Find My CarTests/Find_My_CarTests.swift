@@ -9,6 +9,7 @@
 import UIKit
 import XCTest
 import CoreMotion
+import CoreLocation
 
 class Find_My_CarTests: XCTestCase {
     
@@ -24,11 +25,15 @@ class Find_My_CarTests: XCTestCase {
     
     func testActivityInit() {
         var activity:CMMotionActivity = CMMotionActivity()
-        var testObj:Activity = Activity(activity: activity)
+        var location:CLLocation = CLLocation(latitude: Double(rand()), longitude: Double(rand()))
+        
+        var testObj:Activity = Activity(activity: activity, location: CLLocation(latitude: 50, longitude: 100))
         
         XCTAssertEqual(activity.cycling, false)
         XCTAssertEqual(activity.automotive, false)
         XCTAssertEqual(activity.unknown, true)
         XCTAssertEqual(testObj.type, "")
+        XCTAssertEqual(testObj.latitude, 50)
+        XCTAssertEqual(testObj.longitude, 100)
     }
 }

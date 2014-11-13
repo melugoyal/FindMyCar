@@ -8,17 +8,19 @@
 
 import UIKit
 import CoreMotion
+import AVFoundation
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, CLLocationManagerDelegate, GMSMapViewDelegate, AVAudioPlayerDelegate {
 
     var detailViewController: DetailViewController? = nil
     var objects = NSMutableArray()
-
+    var locationManager:CLLocationManager!
+    var gmaps:GMSMapView?
+    var player:AVPlayer?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            self.clearsSelectionOnViewWillAppear = false
             self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
         }
     }
@@ -26,19 +28,66 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        self.navigationItem.rightBarButtonItem = addButton
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+        
+        audioInit()
+        locationInit()
+        mapInit()
+        updateMarkers()
+    }
+    
+    // create an audio player that will always run so the app can run in the background
+    func audioInit() {
+        var sharedInstance:AVAudioSession = AVAudioSession()
+        sharedInstance.setCategory(AVAudioSessionCategoryPlayback, withOptions: AVAudioSessionCategoryOptions.MixWithOthers, error: nil)
+        self.player = AVPlayer(playerItem: AVPlayerItem(URL: NSURL(string: "http://www.xamuel.com/blank-mp3-files/point1sec.mp3")))
+        self.player?.actionAtItemEnd = AVPlayerActionAtItemEnd.None
+        self.player?.play()
+    }
+    
+    func updateMarkers() {
+        gmaps?.clear() // remove all the currently shown markers
+        for location in Location.getLocations() {
+            addMarker(location)
         }
+    }
+    
+    func locationInit() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+    }
+    
+    func mapInit() {
+        var latitude:CLLocationDegrees = locationManager.location == nil ? 0 : locationManager.location.coordinate.latitude
+        var longitude:CLLocationDegrees = locationManager.location == nil ? 0 : locationManager.location.coordinate.longitude
+        
+        var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 10, bearing: 0, viewingAngle: 0)
+        
+        gmaps = GMSMapView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+        if let map = gmaps? {
+            map.myLocationEnabled = true
+            map.camera = camera
+            map.delegate = self
+            
+            self.view.addSubview(gmaps!)
+        }
+    }
+    
+    func addMarker(location:Location) {
+        var position:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+        var marker:GMSMarker = GMSMarker(position: position)
+        marker.title = location.type
+        marker.map = gmaps
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
     }
     
     override func viewDidAppear(animated: Bool) {
         if (CMMotionActivityManager.isActivityAvailable()) {
-            Handler()
+            Handler(locManager:locationManager, controller: self)
         }
         else {
             showErrorAndKill()
@@ -61,55 +110,6 @@ class MasterViewController: UITableViewController {
     func insertNewObject(sender: AnyObject) {
         objects.insertObject(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
-
-    // MARK: - Segues
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as NSDate
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-    }
-
-    // MARK: - Table View
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-        let object = objects[indexPath.row] as NSDate
-        cell.textLabel.text = object.description
-        return cell
-    }
-
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            objects.removeObjectAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
-    }
-
-
 }
 
