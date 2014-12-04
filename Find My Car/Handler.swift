@@ -25,17 +25,19 @@ class Handler {
             }
             var newActivity = Activity(activity: activity, location:locManager.location)
             if (self.lastActivity == "Car" && newActivity.type != "Car") || (self.lastActivity == "Bike" && newActivity.type != "Bike") {
-                self.postActivity(newActivity)
+                self.postActivity(newActivity, lastActivity: self.lastActivity)
             }
             self.lastActivity = newActivity.type
         })
     }
     
-    func postActivity(newActivity:Activity) {
+    func postActivity(newActivity:Activity, lastActivity:String) {
         var vehicle = PFObject(className: "Vehicle")
         vehicle["location"] = PFGeoPoint(latitude: newActivity.latitude, longitude: newActivity.longitude)
-        vehicle["type"] = newActivity.type
+        vehicle["elevation"] = newActivity.elevation
+        vehicle["type"] = lastActivity
         vehicle["user"] = PFUser.currentUser()
+        vehicle["active"] = true
         vehicle.saveInBackgroundWithBlock({ (Bool, NilLiteralConvertible) -> Void in
             self.controller.updateMarkers() // update the markers on the view after the newest marker has been saved
         })

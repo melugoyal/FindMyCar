@@ -28,6 +28,7 @@
 		048723741A083ABC00BF6E66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048723731A083ABC00BF6E66 /* Images.xcassets */; };
 		048723771A083ABC00BF6E66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048723751A083ABC00BF6E66 /* LaunchScreen.xib */; };
 		048723831A083ABC00BF6E66 /* Find_My_CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048723821A083ABC00BF6E66 /* Find_My_CarTests.swift */; };
+		049D89D51A1E8E3800577F4F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A439211A08740B00DA6306 /* Activity.swift */; };
 		04A439221A08740B00DA6306 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A439211A08740B00DA6306 /* Activity.swift */; };
 		04A439271A08859800DA6306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439261A08859800DA6306 /* Parse.framework */; };
 		04A439291A08886F00DA6306 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439281A08886F00DA6306 /* AudioToolbox.framework */; };
@@ -39,8 +40,8 @@
 		04A439351A0888A700DA6306 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439341A0888A700DA6306 /* QuartzCore.framework */; };
 		04A439371A0888B000DA6306 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A439361A0888B000DA6306 /* Security.framework */; };
 		04A4393B1A0888C200DA6306 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4393A1A0888C200DA6306 /* SystemConfiguration.framework */; };
-		04A4393D1A08898100DA6306 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4393C1A08898100DA6306 /* Bolts.framework */; };
-		04A558FA1A0AF1BF008B3A53 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A439211A08740B00DA6306 /* Activity.swift */; };
+		04EF58201A3007C800F174F0 /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF581F1A3007C800F174F0 /* upArrow.png */; };
+		04EF58221A3007D500F174F0 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF58211A3007D500F174F0 /* downArrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +72,7 @@
 		048723651A083ABC00BF6E66 /* Find My Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Find My Car.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		048723691A083ABC00BF6E66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0487236A1A083ABC00BF6E66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0487236C1A083ABC00BF6E66 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		0487236C1A083ABC00BF6E66 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0487236E1A083ABC00BF6E66 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		048723711A083ABC00BF6E66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		048723731A083ABC00BF6E66 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -93,6 +94,8 @@
 		04A4393A1A0888C200DA6306 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04A4393C1A08898100DA6306 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../ParseStarterProject/Bolts.framework; sourceTree = "<group>"; };
 		04E1DFE01A12CCDD006E8768 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		04EF581F1A3007C800F174F0 /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upArrow.png; path = "Find My Car/upArrow.png"; sourceTree = "<group>"; };
+		04EF58211A3007D500F174F0 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downArrow.png; path = "Find My Car/downArrow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +115,6 @@
 				0471EE811A10774700E31FBF /* AVFoundation.framework in Frameworks */,
 				04A4393B1A0888C200DA6306 /* SystemConfiguration.framework in Frameworks */,
 				04A439371A0888B000DA6306 /* Security.framework in Frameworks */,
-				04A4393D1A08898100DA6306 /* Bolts.framework in Frameworks */,
 				04A439331A08889F00DA6306 /* MobileCoreServices.framework in Frameworks */,
 				0471EE791A0E9D9D00E31FBF /* FacebookSDK.framework in Frameworks */,
 				04A4392F1A08888600DA6306 /* CoreLocation.framework in Frameworks */,
@@ -142,6 +144,8 @@
 				048723671A083ABC00BF6E66 /* Find My Car */,
 				0487237F1A083ABC00BF6E66 /* Find My CarTests */,
 				048723661A083ABC00BF6E66 /* Products */,
+				04EF581F1A3007C800F174F0 /* upArrow.png */,
+				04EF58211A3007D500F174F0 /* downArrow.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -318,6 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				048723721A083ABC00BF6E66 /* Main.storyboard in Resources */,
+				04EF58201A3007C800F174F0 /* upArrow.png in Resources */,
+				04EF58221A3007D500F174F0 /* downArrow.png in Resources */,
 				048723771A083ABC00BF6E66 /* LaunchScreen.xib in Resources */,
 				048723741A083ABC00BF6E66 /* Images.xcassets in Resources */,
 				0471EE911A107A9600E31FBF /* GoogleMaps.bundle in Resources */,
@@ -351,7 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04A558FA1A0AF1BF008B3A53 /* Activity.swift in Sources */,
+				049D89D51A1E8E3800577F4F /* Activity.swift in Sources */,
 				048723831A083ABC00BF6E66 /* Find_My_CarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

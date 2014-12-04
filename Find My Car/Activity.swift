@@ -18,13 +18,16 @@ class Activity {
     var type:String = ""
     var longitude:Double
     var latitude:Double
+    var elevation:Double
     init(activity:CMMotionActivity, location:CLLocation) {
-        bike = activity.cycling
-        car = activity.automotive
         time = activity.startDate
         confidence = activity.confidence == CMMotionActivityConfidence.High ? 2 : (activity.confidence == CMMotionActivityConfidence.Medium ? 1 : 0) // 2 is high, 0 is low
+        var highConfidence:Bool = confidence == 2
+        bike = activity.cycling && highConfidence
+        car = activity.automotive && highConfidence
         type = bike ? "Bike" : (car ? "Car" : "")
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
+        elevation = location.altitude
     }
 }

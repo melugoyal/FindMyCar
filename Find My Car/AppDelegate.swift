@@ -12,14 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var masterViewController:MasterViewController! // a reference to the masterViewController so we can stop location updates when the app is backgrounded
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
-        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-        splitViewController.delegate = self
         initParseAndGmaps()
+        masterViewController = ((self.window?.rootViewController? as UITabBarController).viewControllers?[0] as UINavigationController).topViewController as MasterViewController
         return true
     }
     
@@ -27,14 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         Parse.setApplicationId("4g8GWbIcHa4acM8x2wSZYJL82qElZLdk3bJNSGoO", clientKey: "O47HE8LJR1OkHu0twL9TfJeUKb3LUwafmQFMbS08")
         PFFacebookUtils.initializeFacebook()
         PFUser.enableAutomaticUser()
-        if !PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()) {
-            PFFacebookUtils.linkUser(PFUser.currentUser(), permissions:nil, {
-                (succeeded: Bool!, error: NSError!) -> Void in
-                if succeeded != nil && succeeded == true {
-                    NSLog("Woohoo, user logged in with Facebook!")
-                }
-            })
-        }
+        
+        PFFacebookUtils.logInWithPermissions(nil, {
+            (user: PFUser!, error: NSError!) -> Void in
+            if user == nil {
+                NSLog("Uh oh. The user cancelled the Facebook login.")
+            } else if user.isNew {
+                NSLog("User signed up and logged in through Facebook!")
+            } else {
+                NSLog("User logged in through Facebook!")
+            }
+        })
         GMSServices.provideAPIKey("AIzaSyCJGNro6GbgiZnpprUMBsgllkFZFgAkCuk")
     }
 
@@ -54,10 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        masterViewController.stopLocationUpdates()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        masterViewController.startLocationUpdates()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -82,6 +85,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         return false
     }
-
 }
 
