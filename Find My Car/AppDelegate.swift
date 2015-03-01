@@ -21,8 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return true
     }
     
+    func valueForAPIKey(#keyname: String) -> String {
+        let filepath = NSBundle.mainBundle().pathForResource("ApiKeys", ofType: "plist")
+        let plist = NSDictionary(contentsOfFile:filepath!)
+        return plist?.objectForKey(keyname) as String
+    }
+    
     func initParseAndGmaps() {
-        Parse.setApplicationId("4g8GWbIcHa4acM8x2wSZYJL82qElZLdk3bJNSGoO", clientKey: "O47HE8LJR1OkHu0twL9TfJeUKb3LUwafmQFMbS08")
+        Parse.setApplicationId(valueForAPIKey(keyname: "PARSE_APP_ID"), clientKey: valueForAPIKey(keyname: "PARSE_CLIENT_KEY"))
         PFFacebookUtils.initializeFacebook()
         PFUser.enableAutomaticUser()
         
@@ -36,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 NSLog("User logged in through Facebook!")
             }
         })
-        GMSServices.provideAPIKey("AIzaSyCJGNro6GbgiZnpprUMBsgllkFZFgAkCuk")
+        GMSServices.provideAPIKey(valueForAPIKey(keyname: "GOOGLE_MAPS_KEY"))
     }
 
     func application(application: UIApplication,
