@@ -133,11 +133,10 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate, GM
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
             self.activeLocation = Location.getActiveLocation()
-            if self.activeLocation == nil {
-                return
-            }
-            dispatch_async(dispatch_get_main_queue()) {
-                self.addMarker(self.activeLocation)
+            if self.activeLocation != nil {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.addMarker(self.activeLocation)
+                }
             }
         }
     }

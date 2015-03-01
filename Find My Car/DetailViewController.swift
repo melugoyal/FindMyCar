@@ -12,9 +12,10 @@ import Social
 class DetailViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-    //@IBOutlet weak var tableView: UITableView!
     var locations = [Location]()
     let cellIdentifier = "cellIdentifier"
+    var selectedRows = [NSIndexPath]()
+    var deleteButton:UIBarButtonItem?
 
     var detailItem: AnyObject? {
         didSet {
@@ -37,9 +38,37 @@ class DetailViewController: UITableViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.navigationItem.leftBarButtonItem = editButtonItem()
+        deleteButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash, target: self, action: "deleteButtonHandler:")
+        self.tableView.allowsMultipleSelectionDuringEditing = true
         locations = Location.getLocations()
+        var setEditingMode:Bool = false
+        var setNonEditingMode:Bool = false
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            while (2>1) {
+                if (self.editing && !setEditingMode) {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.navigationItem.rightBarButtonItem = self.deleteButton
+                        setEditingMode = true
+                        setNonEditingMode = false
+                    }
+                }
+                else if (!self.editing && !setNonEditingMode) {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.navigationItem.rightBarButtonItem = nil
+                        setNonEditingMode = true
+                        setEditingMode = false
+                    }
+                }
+            }
+        }
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        locations = Location.getLocations()
+        super.viewWillAppear(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,11 +80,25 @@ class DetailViewController: UITableViewController, UITableViewDelegate, UITableV
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
-        cell.textLabel.text = self.locations[indexPath.row].description
+        cell.textLabel?.text = self.locations[indexPath.row].description
         return cell
     }
     
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        if (editing) {
+            var i:Int = 0
+            for indexPath in selectedRows {
+                selectedRows.removeAtIndex(i)
+                i++
+            }
+        }
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (editing) {
+            selectedRows.append(indexPath)
+            return
+        }
         let alert = UIAlertController(title: nil, message: "What would you like to do?", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         let location = self.locations[indexPath.row]
@@ -115,12 +158,17 @@ class DetailViewController: UITableViewController, UITableViewDelegate, UITableV
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        let location = self.locations[indexPath.row]
         if editingStyle == .Delete {
-            location.deleteObject()
-            locations.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            deleteRow(indexPath)
         }
+    }
+    
+    func deleteRow(indexPath:NSIndexPath) -> Void {
+        let location = self.locations[indexPath.row]
+        location.deleteObject()
+        locations.removeAtIndex(indexPath.row)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     
     func share(location:Location, network:String) {
@@ -134,6 +182,14 @@ class DetailViewController: UITableViewController, UITableViewDelegate, UITableV
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func deleteButtonHandler(sender:AnyObject) {
+        selectedRows.sort { $1.row < $0.row }
+        for i in selectedRows {
+            deleteRow(i)
+        }
+        selectedRows.removeAll(keepCapacity: false)
     }
 }
 

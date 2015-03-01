@@ -73,7 +73,10 @@ class Location: Printable {
         var query = PFQuery(className:"Vehicle")
         query.whereKey("user", equalTo:PFUser.currentUser())
         query.orderByDescending("createdAt")
-        return locationFromPFObj(query.getFirstObject() as PFObject)
+        if query.getFirstObject() != nil {
+            return locationFromPFObj(query.getFirstObject() as PFObject)
+        }
+        return nil
     }
     
     // get the current active location for this user. this is the most recent location with the active bit set, and if no locations are set as active then simply the most recent location
