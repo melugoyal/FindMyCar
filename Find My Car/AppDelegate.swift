@@ -17,14 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         initParseAndGmaps()
-        masterViewController = ((self.window?.rootViewController? as UITabBarController).viewControllers?[0] as UINavigationController).topViewController as MasterViewController
+        masterViewController = ((self.window?.rootViewController as! UITabBarController).viewControllers?[0] as! UINavigationController).topViewController as! MasterViewController
         return true
     }
     
     func valueForAPIKey(#keyname: String) -> String {
         let filepath = NSBundle.mainBundle().pathForResource("ApiKeys", ofType: "plist")
         let plist = NSDictionary(contentsOfFile:filepath!)
-        return plist?.objectForKey(keyname) as String
+        return plist?.objectForKey(keyname) as! String
     }
     
     func initParseAndGmaps() {
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         PFFacebookUtils.initializeFacebook()
         PFUser.enableAutomaticUser()
         
-        PFFacebookUtils.logInWithPermissions(nil, {
+        PFFacebookUtils.logInWithPermissions(nil, block: {
             (user: PFUser!, error: NSError!) -> Void in
             if user == nil {
                 NSLog("Uh oh. The user cancelled the Facebook login.")
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(application: UIApplication,
         openURL url: NSURL,
-        sourceApplication: String,
+        sourceApplication: String?,
         annotation: AnyObject?) -> Bool {
             return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
                 withSession:PFFacebookUtils.session())

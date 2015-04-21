@@ -96,8 +96,8 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate, GM
                 self.listenForPinDrop = false // stop listening for a pin drop
                 var vehicle = PFObject(className: "Vehicle")
                 vehicle["location"] = PFGeoPoint(latitude: self.locationOfDroppedPin.latitude, longitude: self.locationOfDroppedPin.longitude)
-                vehicle["elevation"] = NSString(string:(self.newLocationPrompt.textFields?[1] as UITextField).text).doubleValue
-                vehicle["type"] = (self.newLocationPrompt.textFields?[0] as UITextField).text
+                vehicle["elevation"] = NSString(string:(self.newLocationPrompt.textFields?[1] as! UITextField).text).doubleValue
+                vehicle["type"] = (self.newLocationPrompt.textFields?[0] as! UITextField).text
                 vehicle["user"] = PFUser.currentUser()
                 vehicle["active"] = true
                 vehicle.save()
@@ -158,7 +158,7 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate, GM
         var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 10, bearing: 0, viewingAngle: 0)
         
         gmaps = GMSMapView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
-        if let map = gmaps? {
+        if let map = gmaps {
             map.myLocationEnabled = true
             map.camera = camera
             map.delegate = self
@@ -175,7 +175,7 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate, GM
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
-        var currLocation:CLLocation = locations.last as CLLocation
+        var currLocation:CLLocation = locations.last as! CLLocation
         var currAltitude:Double = currLocation.altitude
         var currLatitude:Double = currLocation.coordinate.latitude
         var currLongitude:Double = currLocation.coordinate.longitude

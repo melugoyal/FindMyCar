@@ -66,6 +66,7 @@ class DetailViewController: UITableViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(animated: Bool) {
         locations = Location.getLocations()
+        self.tableView.reloadData()
         super.viewWillAppear(true)
     }
     
@@ -79,7 +80,7 @@ class DetailViewController: UITableViewController, UITableViewDelegate, UITableV
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
         cell.textLabel?.text = self.locations[indexPath.row].description
         return cell
     }
@@ -112,7 +113,7 @@ class DetailViewController: UITableViewController, UITableViewDelegate, UITableV
                 })
                 editLocation.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler:
                     { (alert: UIAlertAction!) in
-                        location.updateType((editLocation.textFields?[0] as UITextField).text)
+                        location.updateType((editLocation.textFields?[0] as! UITextField).text)
                         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                             
                             self.locations = Location.getLocations() // update the data so we can refresh the table view

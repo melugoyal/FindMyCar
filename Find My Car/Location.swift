@@ -47,14 +47,14 @@ class Location: Printable {
         query.whereKey("user", equalTo:PFUser.currentUser())
         query.orderByDescending("createdAt")
         for object in query.findObjects() {
-            locations.append(locationFromPFObj(object as PFObject))
+            locations.append(locationFromPFObj(object as! PFObject))
         }
         return locations
     }
     
     // convert a Parse object to a Location object
     class func locationFromPFObj(pfObj:PFObject!) -> Location {
-        return Location(geoPoint: pfObj["location"] as PFGeoPoint, elevation: pfObj["elevation"] as Double, type: pfObj["type"] as String, timestamp: pfObj.createdAt, active: pfObj["active"] as Bool)
+        return Location(geoPoint: pfObj["location"] as! PFGeoPoint, elevation: pfObj["elevation"] as! Double, type: pfObj["type"] as! String, timestamp: pfObj.createdAt, active: pfObj["active"] as! Bool)
     }
     
     // convert a Location object to a Parse object
@@ -108,7 +108,7 @@ class Location: Printable {
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             for object in objects {
-                var pfObj = object as PFObject
+                var pfObj = object as! PFObject
                 pfObj["active"] = pfObj.createdAt == self.timestamp ? true : false // set all the other locations to inactive
                 pfObj.saveInBackgroundWithBlock(nil)
             }
